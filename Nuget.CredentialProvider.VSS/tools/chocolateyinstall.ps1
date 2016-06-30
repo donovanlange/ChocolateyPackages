@@ -10,4 +10,9 @@ $downloadedZip = Join-Path $toolsDir 'Nuget.CredentialProvider.VSS.zip'
 Get-ChocolateyWebFile "$packageName" "$downloadedZip" "$url"
 Get-ChocolateyUnzip "$downloadedZip" "$toolsDir"
 
+if (!(Test-Path -Path "$installDir"))
+{
+   New-Item -ItemType directory -Path "$installDir"
+}
+
 Copy-Item "$toolsDir\tools\CredentialProvider.VSS.exe" "$installDir" -Force
