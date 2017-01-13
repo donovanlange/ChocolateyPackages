@@ -7,7 +7,7 @@ $installDir    = Join-Path $env:LOCALAPPDATA "Nuget\CredentialProviders"
 
 ## Download and unpack the zip file:
 $downloadedZip = Join-Path $toolsDir 'Nuget.CredentialProvider.VSS.zip'
-Get-ChocolateyWebFile "$packageName" "$downloadedZip" "$url"
+Get-ChocolateyWebFile -PackageName "$packageName" -FileFullPath "$downloadedZip" -Url "$url" -Checksum "AA79AE37517A15F0807A19A6D68077188DEB2DB5CD0D886EDFC767AB5EACBB29" -ChecksumType "sha256"
 Get-ChocolateyUnzip "$downloadedZip" "$toolsDir"
 
 if (!(Test-Path -Path "$installDir"))
